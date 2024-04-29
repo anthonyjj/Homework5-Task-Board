@@ -32,8 +32,19 @@ function createTaskCard(task) {
 
 // Todo: create a function to render the task list and make cards draggable
 function renderTaskList() {
+    const todoCards = document.getElementById("todo-cards");
+    todoCards.innerHTML = ""; 
+  
+    
+    for (const task of taskList) {
+      const card = createTaskCard(task);
+  
+      const laneId = `#${task.status}-cards`;
+      const lane = document.querySelector(laneId);
+      lane.appendChild(card);
+    }
+  }
 
-}
 
 // Todo: create a function to handle adding a new task
 function handleAddTask(event){
